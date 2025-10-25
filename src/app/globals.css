@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  
- /* Palette Principale */
+  /* Palette Principale */
   --color-navy: #3a5a7e;
   --color-navy-light: #4a6a8e;
   --color-navy-dark: #2a4a6e;
@@ -18,7 +17,6 @@
   /* Couleurs de Support */
   --color-warm-black: #1a1a1a;
   --color-neutral-gray: #666666;
-  
 }
 
 /* Reset et base */
@@ -43,4 +41,176 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.02em;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+
+/* Navbar Responsive */
+.navbar-responsive {
+  padding: 20px 16px;
+}
+
+.navbar-responsive h1 {
+  font-size: 24px;
+}
+
+@media (min-width: 768px) {
+  .navbar-responsive {
+    padding: 24px 32px;
+  }
+  .navbar-responsive h1 {
+    font-size: 28px;
+  }
+}
+
+/* Hero Responsive */
+.hero-responsive {
+  padding: 40px 20px;
+}
+
+.badge-responsive {
+  padding: 10px 16px;
+}
+
+.badge-text-responsive {
+  font-size: 12px;
+}
+
+.title-responsive {
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+
+.description-responsive {
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.buttons-responsive {
+  flex-direction: column;
+  margin-bottom: 60px;
+  gap: 12px;
+}
+
+.button-responsive {
+  width: 100%;
+  padding: 14px 28px;
+  font-size: 16px;
+}
+
+.stats-responsive {
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding-top: 32px;
+}
+
+.stats-responsive > div > div:first-child {
+  font-size: 36px;
+}
+
+.stats-responsive > div > div:last-child {
+  font-size: 13px;
+}
+
+/* Tablette */
+@media (min-width: 640px) {
+  .hero-responsive {
+    padding: 60px 32px;
+  }
+  .badge-responsive {
+    padding: 12px 20px;
+  }
+  .badge-text-responsive {
+    font-size: 14px;
+  }
+  .title-responsive {
+    font-size: 48px;
+    margin-bottom: 28px;
+  }
+  .description-responsive {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+  .buttons-responsive {
+    flex-direction: row;
+    margin-bottom: 70px;
+  }
+  .button-responsive {
+    width: auto;
+    padding: 15px 30px;
+    font-size: 17px;
+  }
+  .stats-responsive {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding-top: 40px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .hero-responsive {
+    padding: 80px 32px;
+  }
+  .title-responsive {
+    font-size: 56px;
+    margin-bottom: 32px;
+  }
+  .description-responsive {
+    font-size: 20px;
+    margin-bottom: 48px;
+  }
+  .buttons-responsive {
+    gap: 16px;
+    margin-bottom: 80px;
+  }
+  .button-responsive {
+    padding: 16px 32px;
+    font-size: 18px;
+  }
+  .stats-responsive {
+    gap: 48px;
+    padding-top: 48px;
+  }
+  .stats-responsive > div > div:first-child {
+    font-size: 48px;
+  }
+  .stats-responsive > div > div:last-child {
+    font-size: 14px;
+  }
+}
+
+/* Footer Responsive */
+.footer-grid-responsive {
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.footer-bottom-responsive {
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+  padding-top: 24px;
+}
+
+@media (min-width: 640px) {
+  .footer-grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid-responsive {
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 64px;
+  }
+  .footer-bottom-responsive {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding-top: 32px;
+  }
 }

@@ -5,66 +5,52 @@ const styles: Record<string, CSSProperties> = {
   main: {
     maxWidth: '1200px',
     margin: '0 auto',
-    padding: '80px 32px',
   },
   badge: {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '8px',
-    padding: '12px 20px',
     backgroundColor: colors.white,
     borderRadius: '999px',
-    marginBottom: '32px',
   },
   badgeDot: {
-    width: '8px',
-    height: '8px',
+    width: '6px',
+    height: '6px',
     backgroundColor: colors.terracotta,
     borderRadius: '50%',
   },
   badgeText: {
-    fontSize: '14px',
     fontWeight: 600,
     color: colors.navy,
   },
   title: {
-    fontSize: '56px',
     fontWeight: 600,
     lineHeight: '1.1',
     color: colors.warmBlack,
-    marginBottom: '32px',
     maxWidth: '900px',
   },
   description: {
-    fontSize: '20px',
     lineHeight: '1.6',
     color: colors.neutralGray,
-    marginBottom: '48px',
     maxWidth: '700px',
   },
   buttonsContainer: {
     display: 'flex',
-    gap: '16px',
-    marginBottom: '80px',
     flexWrap: 'wrap' as const,
   },
   buttonPrimary: {
-    padding: '16px 32px',
     backgroundColor: colors.navy,
     color: colors.white,
     borderRadius: '12px',
-    fontSize: '18px',
     fontWeight: 600,
     border: 'none',
     cursor: 'pointer',
     transition: 'transform 0.2s',
   },
   buttonSecondary: {
-    padding: '16px 32px',
     backgroundColor: colors.white,
     color: colors.navy,
     borderRadius: '12px',
-    fontSize: '18px',
     fontWeight: 600,
     border: `2px solid ${colors.navy}`,
     cursor: 'pointer',
@@ -72,24 +58,18 @@ const styles: Record<string, CSSProperties> = {
   },
   statsContainer: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '48px',
-    paddingTop: '48px',
     borderTop: `2px solid ${colors.paperDark}`,
     maxWidth: '800px',
   },
   statNumber: {
-    fontSize: '48px',
     fontWeight: 600,
     marginBottom: '8px',
   },
   statLabel: {
-    fontSize: '14px',
     color: colors.neutralGray,
   },
 };
 
-// Composant Stat
 const Stat = ({ 
   number, 
   label, 
@@ -113,34 +93,35 @@ export default function Hero() {
   ];
 
   return (
-    <main style={styles.main}>
-      {/* Badge */}
-      <div style={styles.badge}>
+    <main style={styles.main} className="hero-responsive">
+      <div style={styles.badge} className="badge-responsive">
         <span style={styles.badgeDot}></span>
-        <span style={styles.badgeText}>Protection Civile Modernisée</span>
+        <span style={styles.badgeText} className="badge-text-responsive">
+          Protection Civile Modernisée
+        </span>
       </div>
 
-      {/* Titre Principal */}
-      <h2 style={styles.title}>
+      <h2 style={styles.title} className="title-responsive">
         Protection et sécurité{' '}
         <span style={{ color: colors.navy }}>au service</span>{' '}
         <span style={{ color: colors.terracotta }}>de tous</span>
       </h2>
 
-      {/* Description */}
-      <p style={styles.description}>
-        Recap Protect vous accompagne dans la gestion de vos antennes et 
+      <p style={styles.description} className="description-responsive">
+        Recap Protect vous accompagne dans la gestion de vos interventions et 
         la coordination de vos équipes pour une protection civile efficace et moderne.
       </p>
 
-      {/* Boutons */}
-      <div style={styles.buttonsContainer}>
-        <button style={styles.buttonPrimary}>Commencer maintenant</button>
-        <button style={styles.buttonSecondary}>En savoir plus</button>
+      <div style={styles.buttonsContainer} className="buttons-responsive">
+        <button style={styles.buttonPrimary} className="button-responsive">
+          Commencer maintenant
+        </button>
+        <button style={styles.buttonSecondary} className="button-responsive">
+          En savoir plus
+        </button>
       </div>
 
-      {/* Stats */}
-      <div style={styles.statsContainer}>
+      <div style={styles.statsContainer} className="stats-responsive">
         {stats.map((stat) => (
           <Stat key={stat.label} {...stat} />
         ))}

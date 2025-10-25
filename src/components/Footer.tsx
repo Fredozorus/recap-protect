@@ -1,28 +1,39 @@
 import { colors } from '@/app/styles/colors';
 import { CSSProperties } from 'react';
 
-// Styles réutilisables
 const styles: Record<string, CSSProperties> = {
   footer: {
     borderTop: `2px solid ${colors.paperDark}`,
-    marginTop: '120px',
+    marginTop: '80px',
   },
   container: {
     maxWidth: '1200px',
     margin: '0 auto',
-    padding: '80px 32px 40px',
+    padding: '60px 20px 30px',
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '48px',
-    marginBottom: '64px',
+  },
+  logo: {
+    fontSize: '22px',
+    fontWeight: 600,
+    marginBottom: '12px',
+  },
+  description: {
+    fontSize: '14px',
+    lineHeight: '1.6',
+    color: colors.neutralGray,
+    marginBottom: '20px',
+  },
+  socialContainer: {
+    display: 'flex',
+    gap: '12px',
   },
   sectionTitle: {
     fontSize: '16px',
     fontWeight: 600,
     color: colors.warmBlack,
-    marginBottom: '20px',
+    marginBottom: '16px',
   },
   linkList: {
     listStyle: 'none',
@@ -30,7 +41,7 @@ const styles: Record<string, CSSProperties> = {
     margin: 0,
   },
   linkItem: {
-    marginBottom: '12px',
+    marginBottom: '10px',
   },
   link: {
     fontSize: '14px',
@@ -51,17 +62,23 @@ const styles: Record<string, CSSProperties> = {
     fontWeight: 600,
   },
   bottomBar: {
-    paddingTop: '32px',
+    paddingTop: '24px',
     borderTop: `1px solid ${colors.paperDark}`,
     display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  },
+  copyright: {
+    fontSize: '13px',
+    color: colors.neutralGray,
+    margin: 0,
+  },
+  legalLinks: {
+    display: 'flex',
+    gap: '20px',
     flexWrap: 'wrap' as const,
-    gap: '16px',
+    justifyContent: 'center',
   },
 };
 
-// Composant pour les liens du footer
 const FooterLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <li style={styles.linkItem}>
     <a href={href} style={styles.link}>
@@ -70,7 +87,6 @@ const FooterLink = ({ href, children }: { href: string; children: React.ReactNod
   </li>
 );
 
-// Composant pour une section du footer
 const FooterSection = ({ 
   title, 
   links 
@@ -90,7 +106,6 @@ const FooterSection = ({
   </div>
 );
 
-// Composant pour les icônes sociales
 const SocialIcon = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a href={href} style={styles.socialIcon}>
     {children}
@@ -98,7 +113,6 @@ const SocialIcon = ({ href, children }: { href: string; children: React.ReactNod
 );
 
 export default function Footer() {
-  // Données structurées
   const footerSections = [
     {
       title: 'Produit',
@@ -138,25 +152,19 @@ export default function Footer() {
   return (
     <footer style={styles.footer}>
       <div style={styles.container}>
-        <div style={styles.grid}>
+        <div style={styles.grid} className="footer-grid-responsive">
           {/* Colonne 1 - Logo & Description */}
           <div>
-            <h3 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '16px' }}>
+            <h3 style={styles.logo}>
               <span style={{ color: colors.navy }}>Recap</span>
               <span style={{ color: colors.terracotta }}>Protect</span>
             </h3>
-            <p style={{ 
-              fontSize: '14px', 
-              lineHeight: '1.6',
-              color: colors.neutralGray,
-              marginBottom: '24px'
-            }}>
+            <p style={styles.description}>
               Protection et sécurité au service de tous. 
               Coordonnez vos équipes efficacement.
             </p>
             
-            {/* Social Icons */}
-            <div style={{ display: 'flex', gap: '12px' }}>
+            <div style={styles.socialContainer}>
               <SocialIcon href="#">f</SocialIcon>
               <SocialIcon href="#">𝕏</SocialIcon>
               <SocialIcon href="#">in</SocialIcon>
@@ -174,16 +182,16 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div style={styles.bottomBar}>
-          <p style={{ fontSize: '14px', color: colors.neutralGray, margin: 0 }}>
+        <div style={styles.bottomBar} className="footer-bottom-responsive">
+          <p style={styles.copyright}>
             © 2025 Recap Protect. Tous droits réservés.
           </p>
-          <div style={{ display: 'flex', gap: '24px' }}>
+          <div style={styles.legalLinks}>
             {legalLinks.map((link) => (
               <a 
                 key={link.label} 
                 href={link.href} 
-                style={styles.link}
+                style={{ ...styles.link, fontSize: '13px' }}
               >
                 {link.label}
               </a>
