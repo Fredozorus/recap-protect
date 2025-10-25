@@ -157,7 +157,7 @@ export default function Footer() {
           <div>
             <h3 style={styles.logo}>
               <span style={{ color: colors.navy }}>Recap</span>
-              <span style={{ color: colors.terracotta }}>Protect</span>
+              <span style={{ color: colors.terracotta }}>Protec</span>
             </h3>
             <p style={styles.description}>
               Protection et sécurité au service de tous. 
@@ -184,7 +184,7 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div style={styles.bottomBar} className="footer-bottom-responsive">
           <p style={styles.copyright}>
-            © 2025 Recap Protect. Tous droits réservés.
+            © 2025 Recap Protec. Tous droits réservés.
           </p>
           <div style={styles.legalLinks}>
             {legalLinks.map((link) => (

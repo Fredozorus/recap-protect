@@ -8,7 +8,7 @@ export default function Navbar() {
     >
       <h1>
         <span style={{ color: colors.navy }}>Recap</span>
-        <span style={{ color: colors.terracotta }}>Protect</span>
+        <span style={{ color: colors.terracotta }}>Protec</span>
       </h1>
     </nav>
   );

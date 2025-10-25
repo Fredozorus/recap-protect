@@ -10,7 +10,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Recap Protect",
+  title: "Recap Protec",
   description: "Protection et sécurité au service de tous",
 };
 
