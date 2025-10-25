@@ -6,33 +6,18 @@ const styles: Record<string, CSSProperties> = {
     maxWidth: '1200px',
     margin: '0 auto',
   },
-  badge: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '8px',
-    backgroundColor: colors.white,
-    borderRadius: '999px',
-  },
-  badgeDot: {
-    width: '6px',
-    height: '6px',
-    backgroundColor: colors.terracotta,
-    borderRadius: '50%',
-  },
-  badgeText: {
-    fontWeight: 600,
-    color: colors.navy,
-  },
   title: {
     fontWeight: 600,
     lineHeight: '1.1',
     color: colors.warmBlack,
     maxWidth: '900px',
+    marginBottom: '32px', // AJOUTÉ ICI
   },
   description: {
     lineHeight: '1.6',
     color: colors.neutralGray,
     maxWidth: '700px',
+    marginBottom: '48px', // AJOUTÉ ICI
   },
   buttonsContainer: {
     display: 'flex',
@@ -94,24 +79,20 @@ export default function Hero() {
 
   return (
     <main style={styles.main} className="hero-responsive">
-      <div style={styles.badge} className="badge-responsive">
-        <span style={styles.badgeDot}></span>
-        <span style={styles.badgeText} className="badge-text-responsive">
-          Protection Civile Modernisée
-        </span>
-      </div>
-
+      {/* Titre Principal */}
       <h2 style={styles.title} className="title-responsive">
         Protection et sécurité{' '}
         <span style={{ color: colors.navy }}>au service</span>{' '}
         <span style={{ color: colors.terracotta }}>de tous</span>
       </h2>
 
+      {/* Description */}
       <p style={styles.description} className="description-responsive">
         Recap Protect vous accompagne dans la gestion de vos interventions et 
         la coordination de vos équipes pour une protection civile efficace et moderne.
       </p>
 
+      {/* Boutons */}
       <div style={styles.buttonsContainer} className="buttons-responsive">
         <button style={styles.buttonPrimary} className="button-responsive">
           Commencer maintenant
@@ -121,6 +102,7 @@ export default function Hero() {
         </button>
       </div>
 
+      {/* Stats */}
       <div style={styles.statsContainer} className="stats-responsive">
         {stats.map((stat) => (
           <Stat key={stat.label} {...stat} />
