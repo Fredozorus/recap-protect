@@ -129,7 +129,7 @@ export default function Hero() {
 
       {/* Description */}
       <p style={styles.description}>
-        Recap Protect vous accompagne dans la gestion de vos interventions et 
+        Recap Protect vous accompagne dans la gestion de vos antennes et 
         la coordination de vos équipes pour une protection civile efficace et moderne.
       </p>
 

@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     
-     <div style={{ backgroundColor: '#F5F1E8', minHeight: '100vh' }}>
+     <div style={{ backgroundColor: 'colors.paper', minHeight: '100vh' }}>
       <Navbar />
       <Hero />
       <Footer />
