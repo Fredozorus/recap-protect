@@ -62,25 +62,22 @@ export default function SignUpPage() {
   }
 
   return (
-    <div className="w-full max-w-md bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+    <div className="w-[320px] bg-white rounded-lg shadow-lg p-6">
       {/* Titre */}
-      <div className="mb-6">
-        <p className="text-sm text-gray-500 mb-1">Start your journey</p>
-        <h2 className="text-xl font-bold text-gray-900">
-          Sign Up to RecapProtec
-        </h2>
+      <div className="text-center mb-5">
+        <h2 className="text-lg font-bold text-gray-900">Signup</h2>
       </div>
 
       {/* Formulaire */}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-3">
         {error && (
-          <div className="text-red-600 text-sm bg-red-50 border border-red-200 px-4 py-3 rounded-lg">
+          <div className="text-red-600 text-xs bg-red-50 px-3 py-2 rounded">
             {error}
           </div>
         )}
 
         {/* Prénom et Nom */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-2">
           <input
             name="firstName"
             type="text"
@@ -88,7 +85,7 @@ export default function SignUpPage() {
             onChange={handleChange}
             placeholder="First name"
             required
-            className="w-full px-4 py-2.5 bg-white border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent text-gray-900 placeholder:text-gray-400"
+            className="w-full px-3 py-2 text-sm bg-white border border-gray-300 rounded focus:outline-none focus:border-[#2C3E50] text-gray-900 placeholder:text-gray-400"
           />
           <input
             name="lastName"
@@ -97,7 +94,7 @@ export default function SignUpPage() {
             onChange={handleChange}
             placeholder="Last name"
             required
-            className="w-full px-4 py-2.5 bg-white border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent text-gray-900 placeholder:text-gray-400"
+            className="w-full px-3 py-2 text-sm bg-white border border-gray-300 rounded focus:outline-none focus:border-[#2C3E50] text-gray-900 placeholder:text-gray-400"
           />
         </div>
 
@@ -107,9 +104,9 @@ export default function SignUpPage() {
           type="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="Email address"
+          placeholder="Email"
           required
-          className="w-full px-4 py-2.5 bg-white border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent text-gray-900 placeholder:text-gray-400"
+          className="w-full px-3 py-2 text-sm bg-white border border-gray-300 rounded focus:outline-none focus:border-[#2C3E50] text-gray-900 placeholder:text-gray-400"
         />
 
         {/* Password */}
@@ -119,9 +116,9 @@ export default function SignUpPage() {
             type={showPassword ? 'text' : 'password'}
             value={formData.password}
             onChange={handleChange}
-            placeholder="Password"
+            placeholder="Create password"
             required
-            className="w-full px-4 py-2.5 pr-10 bg-white border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent text-gray-900 placeholder:text-gray-400"
+            className="w-full px-3 py-2 pr-9 text-sm bg-white border border-gray-300 rounded focus:outline-none focus:border-[#2C3E50] text-gray-900 placeholder:text-gray-400"
           />
           <button
             type="button"
@@ -148,9 +145,9 @@ export default function SignUpPage() {
             type={showConfirmPassword ? 'text' : 'password'}
             value={formData.confirmPassword}
             onChange={handleChange}
-            placeholder="Repeat password"
+            placeholder="Confirm password"
             required
-            className="w-full px-4 py-2.5 pr-10 bg-white border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent text-gray-900 placeholder:text-gray-400"
+            className="w-full px-3 py-2 pr-9 text-sm bg-white border border-gray-300 rounded focus:outline-none focus:border-[#2C3E50] text-gray-900 placeholder:text-gray-400"
           />
           <button
             type="button"
@@ -174,16 +171,16 @@ export default function SignUpPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-[#2C3E50] hover:bg-[#1a2633] text-white py-2.5 rounded-md text-sm font-medium transition disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-[#2C3E50] hover:bg-[#1a2633] text-white py-2 rounded text-sm font-medium transition disabled:opacity-50 mt-4"
         >
-          {loading ? 'Sign up...' : 'Sign up'}
+          {loading ? 'Signup...' : 'Signup'}
         </button>
 
         {/* Login link */}
-        <div className="text-center text-sm text-gray-600">
+        <div className="text-center text-xs text-gray-600 pt-2">
           Already have an account?{' '}
-          <Link href="/login" className="text-gray-900 font-semibold hover:text-[#E67E50] transition">
-            Sign in
+          <Link href="/login" className="text-[#2C3E50] font-semibold hover:text-[#E67E50]">
+            Login
           </Link>
         </div>
       </form>
