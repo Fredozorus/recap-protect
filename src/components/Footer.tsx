@@ -118,8 +118,6 @@ export default function Footer() {
       title: 'Produit',
       links: [
         { href: '#', label: 'Fonctionnalités' },
-        { href: '#', label: 'Tarifs' },
-        { href: '#', label: 'Démo' },
         { href: '#', label: 'Mises à jour' },
       ],
     },
@@ -128,17 +126,13 @@ export default function Footer() {
       links: [
         { href: '#', label: 'À propos' },
         { href: '#', label: 'Équipe' },
-        { href: '#', label: 'Carrières' },
-        { href: '#', label: 'Contact' },
       ],
     },
     {
       title: 'Ressources',
       links: [
-        { href: '#', label: 'Blog' },
         { href: '#', label: 'Documentation' },
         { href: '#', label: 'Support' },
-        { href: '#', label: 'Statut' },
       ],
     },
   ];
