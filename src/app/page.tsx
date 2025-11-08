@@ -3,8 +3,7 @@ import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 
 export default function Home() {
-  return (
-    
+  return (  
      <div style={{ backgroundColor: 'colors.paper', minHeight: '100vh' }}>
       <Navbar />
       <Hero />
