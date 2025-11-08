@@ -93,8 +93,14 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#f5f1e8' }}>
-        <div className="text-xl" style={{ color: '#3a5a7e' }}>Chargement...</div>
+      <div style={{ 
+        minHeight: '100vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        backgroundColor: '#f5f1e8'
+      }}>
+        <div style={{ fontSize: '20px', color: '#3a5a7e' }}>Chargement...</div>
       </div>
     )
   }
@@ -104,27 +110,44 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f5f1e8' }}>
+    <>
       {/* Navbar */}
-      <nav className="bg-white" style={{ borderBottom: '1px solid #ebe7de' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold" style={{ letterSpacing: '-0.02em' }}>
+      <nav style={{ 
+        backgroundColor: 'white', 
+        borderBottom: '1px solid #ebe7de',
+        padding: '16px 32px'
+      }}>
+        <div style={{ 
+          maxWidth: '1280px', 
+          margin: '0 auto',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>
             <span style={{ color: '#3a5a7e' }}>Recap</span>
             <span style={{ color: '#c98550' }}>Protec</span>
           </h1>
-          <div className="flex items-center gap-4">
-            <div className="hidden sm:block text-right">
-              <p className="text-sm font-medium" style={{ color: '#3a5a7e' }}>
+          
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div style={{ textAlign: 'right' }}>
+              <p style={{ fontSize: '14px', fontWeight: '500', color: '#3a5a7e' }}>
                 {user.user_metadata?.first_name} {user.user_metadata?.last_name}
               </p>
-              <p className="text-xs" style={{ color: '#666666' }}>{user.email}</p>
+              <p style={{ fontSize: '12px', color: '#666666' }}>{user.email}</p>
             </div>
             <button
               onClick={handleSignOut}
-              className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200"
               style={{ 
+                padding: '8px 16px',
+                fontSize: '14px',
+                fontWeight: '500',
                 color: '#3a5a7e', 
                 border: '1px solid #3a5a7e',
+                borderRadius: '8px',
+                background: 'transparent',
+                cursor: 'pointer',
+                transition: 'all 0.2s'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = '#3a5a7e'
@@ -142,10 +165,11 @@ export default function Dashboard() {
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Welcome Section */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold mb-2" style={{ color: '#3a5a7e' }}>
+      <main style={{ maxWidth: '1280px', margin: '0 auto', padding: '32px' }}>
+        
+        {/* Welcome */}
+        <div style={{ marginBottom: '32px' }}>
+          <h2 style={{ fontSize: '32px', fontWeight: 'bold', color: '#3a5a7e', marginBottom: '8px' }}>
             Bonjour {user.user_metadata?.first_name} ! 👋
           </h2>
           <p style={{ color: '#666666' }}>
@@ -153,255 +177,271 @@ export default function Dashboard() {
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {/* Total Hours */}
-          <div 
-            className="bg-white rounded-xl p-6 transition-shadow hover:shadow-md" 
-            style={{ border: '1px solid #ebe7de' }}
-          >
-            <div className="flex items-center justify-between mb-3">
-              <div 
-                className="w-12 h-12 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(58, 90, 126, 0.1)' }}
-              >
-                <Clock className="w-6 h-6" style={{ color: '#3a5a7e' }} />
+        {/* Stats */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(4, 1fr)', 
+          gap: '16px',
+          marginBottom: '32px'
+        }}>
+          <div style={{ 
+            backgroundColor: 'white', 
+            padding: '24px', 
+            borderRadius: '12px',
+            border: '1px solid #ebe7de'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+              <div style={{ 
+                width: '48px', 
+                height: '48px', 
+                backgroundColor: 'rgba(58, 90, 126, 0.1)',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <Clock size={24} style={{ color: '#3a5a7e' }} />
               </div>
-              <TrendingUp className="w-5 h-5" style={{ color: '#c98550' }} />
+              <TrendingUp size={20} style={{ color: '#c98550' }} />
             </div>
-            <p className="text-3xl font-bold mb-1" style={{ color: '#3a5a7e' }}>
+            <p style={{ fontSize: '32px', fontWeight: 'bold', color: '#3a5a7e', marginBottom: '4px' }}>
               {stats.totalHours}h
             </p>
-            <p className="text-sm" style={{ color: '#666666' }}>Heures totales</p>
+            <p style={{ fontSize: '14px', color: '#666666' }}>Heures totales</p>
           </div>
 
-          {/* Total Events */}
-          <div 
-            className="bg-white rounded-xl p-6 transition-shadow hover:shadow-md"
-            style={{ border: '1px solid #ebe7de' }}
-          >
-            <div className="flex items-center justify-between mb-3">
-              <div 
-                className="w-12 h-12 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(201, 133, 80, 0.1)' }}
-              >
-                <Calendar className="w-6 h-6" style={{ color: '#c98550' }} />
+          <div style={{ 
+            backgroundColor: 'white', 
+            padding: '24px', 
+            borderRadius: '12px',
+            border: '1px solid #ebe7de'
+          }}>
+            <div style={{ marginBottom: '12px' }}>
+              <div style={{ 
+                width: '48px', 
+                height: '48px', 
+                backgroundColor: 'rgba(201, 133, 80, 0.1)',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <Calendar size={24} style={{ color: '#c98550' }} />
               </div>
             </div>
-            <p className="text-3xl font-bold mb-1" style={{ color: '#3a5a7e' }}>
+            <p style={{ fontSize: '32px', fontWeight: 'bold', color: '#3a5a7e', marginBottom: '4px' }}>
               {stats.totalEvents}
             </p>
-            <p className="text-sm" style={{ color: '#666666' }}>Événements</p>
+            <p style={{ fontSize: '14px', color: '#666666' }}>Événements</p>
           </div>
 
-          {/* Upcoming Events */}
-          <div 
-            className="bg-white rounded-xl p-6 transition-shadow hover:shadow-md"
-            style={{ border: '1px solid #ebe7de' }}
-          >
-            <div className="flex items-center justify-between mb-3">
-              <div 
-                className="w-12 h-12 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(58, 90, 126, 0.1)' }}
-              >
-                <MapPin className="w-6 h-6" style={{ color: '#3a5a7e' }} />
+          <div style={{ 
+            backgroundColor: 'white', 
+            padding: '24px', 
+            borderRadius: '12px',
+            border: '1px solid #ebe7de'
+          }}>
+            <div style={{ marginBottom: '12px' }}>
+              <div style={{ 
+                width: '48px', 
+                height: '48px', 
+                backgroundColor: 'rgba(58, 90, 126, 0.1)',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <MapPin size={24} style={{ color: '#3a5a7e' }} />
               </div>
             </div>
-            <p className="text-3xl font-bold mb-1" style={{ color: '#3a5a7e' }}>
+            <p style={{ fontSize: '32px', fontWeight: 'bold', color: '#3a5a7e', marginBottom: '4px' }}>
               {stats.upcomingEvents}
             </p>
-            <p className="text-sm" style={{ color: '#666666' }}>À venir</p>
+            <p style={{ fontSize: '14px', color: '#666666' }}>À venir</p>
           </div>
 
-          {/* Rank */}
-          <div 
-            className="bg-white rounded-xl p-6 transition-shadow hover:shadow-md"
-            style={{ border: '1px solid #ebe7de' }}
-          >
-            <div className="flex items-center justify-between mb-3">
-              <div 
-                className="w-12 h-12 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(201, 133, 80, 0.1)' }}
-              >
-                <Award className="w-6 h-6" style={{ color: '#c98550' }} />
+          <div style={{ 
+            backgroundColor: 'white', 
+            padding: '24px', 
+            borderRadius: '12px',
+            border: '1px solid #ebe7de'
+          }}>
+            <div style={{ marginBottom: '12px' }}>
+              <div style={{ 
+                width: '48px', 
+                height: '48px', 
+                backgroundColor: 'rgba(201, 133, 80, 0.1)',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <Award size={24} style={{ color: '#c98550' }} />
               </div>
             </div>
-            <p className="text-3xl font-bold mb-1" style={{ color: '#3a5a7e' }}>
+            <p style={{ fontSize: '32px', fontWeight: 'bold', color: '#3a5a7e', marginBottom: '4px' }}>
               #{stats.rank}
             </p>
-            <p className="text-sm" style={{ color: '#666666' }}>Classement</p>
+            <p style={{ fontSize: '14px', color: '#666666' }}>Classement</p>
           </div>
         </div>
 
-        {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Content Grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '32px' }}>
+          
           {/* Recent Activities */}
-          <div className="lg:col-span-2">
-            <div 
-              className="bg-white rounded-xl overflow-hidden"
-              style={{ border: '1px solid #ebe7de' }}
-            >
-              <div className="px-6 py-4" style={{ borderBottom: '1px solid #ebe7de' }}>
-                <h3 className="text-xl font-bold" style={{ color: '#3a5a7e' }}>
-                  Activités récentes
-                </h3>
-              </div>
-              <div>
-                {recentActivities.map((activity, index) => (
-                  <div
-                    key={activity.id}
-                    className="px-6 py-4 transition-colors hover:bg-opacity-50"
-                    style={{ 
-                      borderBottom: index < recentActivities.length - 1 ? '1px solid #ebe7de' : 'none'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'rgba(245, 241, 232, 0.5)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent'
-                    }}
-                  >
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <h4 className="font-semibold" style={{ color: '#3a5a7e' }}>
-                            {activity.event}
-                          </h4>
-                          <span 
-                            className="px-2 py-0.5 text-xs font-medium rounded"
-                            style={{ 
-                              backgroundColor: 'rgba(201, 133, 80, 0.1)',
-                              color: '#c98550'
-                            }}
-                          >
-                            {activity.type}
-                          </span>
-                        </div>
-                        <div className="flex flex-wrap items-center gap-4 text-sm" style={{ color: '#666666' }}>
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            {new Date(activity.date).toLocaleDateString('fr-FR', {
-                              day: 'numeric',
-                              month: 'long',
-                              year: 'numeric'
-                            })}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            {activity.location}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="text-right ml-4">
-                        <p className="text-2xl font-bold" style={{ color: '#3a5a7e' }}>
-                          {activity.hours}h
-                        </p>
-                      </div>
+          <div style={{ 
+            backgroundColor: 'white', 
+            borderRadius: '12px',
+            border: '1px solid #ebe7de',
+            overflow: 'hidden'
+          }}>
+            <div style={{ padding: '24px', borderBottom: '1px solid #ebe7de' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#3a5a7e' }}>
+                Activités récentes
+              </h3>
+            </div>
+            {recentActivities.map((activity, index) => (
+              <div
+                key={activity.id}
+                style={{ 
+                  padding: '24px',
+                  borderBottom: index < recentActivities.length - 1 ? '1px solid #ebe7de' : 'none'
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                      <h4 style={{ fontWeight: '600', color: '#3a5a7e' }}>
+                        {activity.event}
+                      </h4>
+                      <span style={{ 
+                        padding: '2px 8px',
+                        fontSize: '12px',
+                        fontWeight: '500',
+                        backgroundColor: 'rgba(201, 133, 80, 0.1)',
+                        color: '#c98550',
+                        borderRadius: '4px'
+                      }}>
+                        {activity.type}
+                      </span>
+                    </div>
+                    <div style={{ display: 'flex', gap: '16px', fontSize: '14px', color: '#666666' }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <Calendar size={16} />
+                        {new Date(activity.date).toLocaleDateString('fr-FR', {
+                          day: 'numeric',
+                          month: 'long',
+                          year: 'numeric'
+                        })}
+                      </span>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <MapPin size={16} />
+                        {activity.location}
+                      </span>
                     </div>
                   </div>
-                ))}
+                  <div>
+                    <p style={{ fontSize: '24px', fontWeight: 'bold', color: '#3a5a7e' }}>
+                      {activity.hours}h
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
 
           {/* Upcoming Events */}
-          <div className="lg:col-span-1">
-            <div 
-              className="bg-white rounded-xl overflow-hidden"
-              style={{ border: '1px solid #ebe7de' }}
-            >
-              <div className="px-6 py-4" style={{ borderBottom: '1px solid #ebe7de' }}>
-                <h3 className="text-xl font-bold" style={{ color: '#3a5a7e' }}>
-                  Prochains événements
-                </h3>
+          <div style={{ 
+            backgroundColor: 'white', 
+            borderRadius: '12px',
+            border: '1px solid #ebe7de',
+            overflow: 'hidden'
+          }}>
+            <div style={{ padding: '24px', borderBottom: '1px solid #ebe7de' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#3a5a7e' }}>
+                Prochains événements
+              </h3>
+            </div>
+            {upcomingEvents.map((event, index) => (
+              <div 
+                key={event.id} 
+                style={{ 
+                  padding: '24px',
+                  borderBottom: index < upcomingEvents.length - 1 ? '1px solid #ebe7de' : 'none'
+                }}
+              >
+                <h4 style={{ fontWeight: '600', color: '#3a5a7e', marginBottom: '8px' }}>
+                  {event.event}
+                </h4>
+                <div style={{ fontSize: '14px', color: '#666666' }}>
+                  <p style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                    <Calendar size={16} />
+                    {new Date(event.date).toLocaleDateString('fr-FR', {
+                      day: 'numeric',
+                      month: 'long'
+                    })}
+                  </p>
+                  <p style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                    <Clock size={16} />
+                    {event.time}
+                  </p>
+                  <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <MapPin size={16} />
+                    {event.location}
+                  </p>
+                </div>
               </div>
-              <div>
-                {upcomingEvents.map((event, index) => (
-                  <div 
-                    key={event.id} 
-                    className="px-6 py-4 transition-colors"
-                    style={{ 
-                      borderBottom: index < upcomingEvents.length - 1 ? '1px solid #ebe7de' : 'none'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'rgba(245, 241, 232, 0.5)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent'
-                    }}
-                  >
-                    <h4 className="font-semibold mb-2" style={{ color: '#3a5a7e' }}>
-                      {event.event}
-                    </h4>
-                    <div className="space-y-1 text-sm" style={{ color: '#666666' }}>
-                      <p className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        {new Date(event.date).toLocaleDateString('fr-FR', {
-                          day: 'numeric',
-                          month: 'long'
-                        })}
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <Clock className="w-4 h-4" />
-                        {event.time}
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        {event.location}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="px-6 py-4" style={{ backgroundColor: 'rgba(245, 241, 232, 0.5)' }}>
-                <button 
-                  className="w-full py-2 text-sm font-medium transition-colors"
-                  style={{ color: '#3a5a7e' }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = '#c98550'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = '#3a5a7e'
-                  }}
-                >
-                  Voir tous les événements →
-                </button>
-              </div>
+            ))}
+            <div style={{ padding: '16px', backgroundColor: 'rgba(245, 241, 232, 0.5)', textAlign: 'center' }}>
+              <button style={{ 
+                fontSize: '14px',
+                fontWeight: '500',
+                color: '#3a5a7e',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer'
+              }}>
+                Voir tous les événements →
+              </button>
             </div>
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div 
-          className="mt-8 rounded-xl p-8 text-center"
-          style={{
-            background: 'linear-gradient(to right, #3a5a7e, #4a6a8e)'
-          }}
-        >
-          <Users className="w-12 h-12 mx-auto mb-4" style={{ color: '#c98550' }} />
-          <h3 className="text-2xl font-bold text-white mb-2">
+        {/* CTA */}
+        <div style={{
+          marginTop: '32px',
+          background: 'linear-gradient(to right, #3a5a7e, #4a6a8e)',
+          borderRadius: '12px',
+          padding: '48px',
+          textAlign: 'center'
+        }}>
+          <Users size={48} style={{ color: '#c98550', margin: '0 auto 16px' }} />
+          <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: 'white', marginBottom: '8px' }}>
             Votre Recap 2025 arrive bientôt !
           </h3>
-          <p className="text-white mb-4" style={{ opacity: 0.8 }}>
+          <p style={{ color: 'white', opacity: 0.8, marginBottom: '16px' }}>
             Découvrez votre année en Protection Civile dans un format unique et personnalisé
           </p>
-          <button 
-            className="px-6 py-3 font-medium rounded-lg transition-colors"
-            style={{ 
-              backgroundColor: '#c98550',
-              color: 'white'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#b97540'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#c98550'
-            }}
-          >
+          <button style={{ 
+            padding: '12px 24px',
+            fontWeight: '500',
+            backgroundColor: '#c98550',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#b97540'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#c98550'
+          }}>
             En savoir plus
           </button>
         </div>
       </main>
-    </div>
+    </>
   )
 }
