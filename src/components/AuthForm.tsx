@@ -216,7 +216,7 @@ export default function AuthForm() {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="votre.email@example.com"
+            placeholder=""
             required
             style={{
               width: '100%',
@@ -260,7 +260,7 @@ export default function AuthForm() {
               type={showPassword ? 'text' : 'password'}
               value={formData.password}
               onChange={handleChange}
-              placeholder="••••••••"
+              placeholder=""
               required
               style={{
                 width: '100%',
@@ -354,7 +354,7 @@ export default function AuthForm() {
                 type={showConfirmPassword ? 'text' : 'password'}
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                placeholder="••••••••"
+                placeholder=""
                 required={!isLogin}
                 style={{
                   width: '100%',
