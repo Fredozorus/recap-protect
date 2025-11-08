@@ -74,22 +74,7 @@ export default function AuthForm() {
     >
       {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-        <div
-          style={{
-            width: '80px',
-            height: '80px',
-            backgroundColor: colors.navy,
-            borderRadius: '20px',
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: '16px',
-          }}
-        >
-          <span style={{ fontSize: '32px', fontWeight: 'bold', color: 'white' }}>
-            RP
-          </span>
-        </div>
+        
         <h3
           style={{
             fontSize: '24px',
