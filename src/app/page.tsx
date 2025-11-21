@@ -3,10 +3,17 @@ import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 
 export default function Home() {
-  return (  
-     <div style={{ backgroundColor: 'colors.paper', minHeight: '100vh' }}>
+  return (
+    <div style={{
+      backgroundColor: '#f5f1e8', // colors.paper 
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
       <Navbar />
-      <Hero />
+      <main style={{ flex: 1 }}>
+        <Hero />
+      </main>
       <Footer />
     </div>
   );

@@ -63,29 +63,13 @@ export default function AuthForm() {
   }
 
   return (
-    <div
-      style={{
-        backgroundColor: 'white',
-        borderRadius: '24px',
-        padding: '40px',
-        boxShadow: '0 20px 60px rgba(58, 90, 126, 0.15)',
-        border: `1px solid ${colors.paperDark}`,
-      }}
-    >
+    <div className="auth-form-container">
       {/* Header */}
-      <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-        
-        <h3
-          style={{
-            fontSize: '24px',
-            fontWeight: 'bold',
-            marginBottom: '8px',
-            color: colors.warmBlack,
-          }}
-        >
+      <div className="auth-form-header">
+        <h3 className="auth-form-title">
           {isLogin ? 'Connexion' : 'Créer un compte'}
         </h3>
-        <p style={{ color: colors.neutralGray, fontSize: '14px' }}>
+        <p className="auth-form-subtitle">
           {isLogin ? 'Accédez à votre espace' : 'Rejoignez RecapProtec'}
         </p>
       </div>
@@ -112,7 +96,7 @@ export default function AuthForm() {
 
         {/* Prénom et Nom (signup only) */}
         {!isLogin && (
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="auth-form-grid">
             <div>
               <label
                 htmlFor="firstName"
@@ -455,8 +439,8 @@ export default function AuthForm() {
           {loading
             ? 'Chargement...'
             : isLogin
-            ? 'Se connecter'
-            : 'Créer mon compte'}
+              ? 'Se connecter'
+              : 'Créer mon compte'}
         </button>
 
         {/* Toggle Login/Signup */}
