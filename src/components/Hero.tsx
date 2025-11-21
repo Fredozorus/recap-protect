@@ -1,3 +1,4 @@
+
 import { colors } from '@/app/styles/colors'
 import AuthForm from './AuthForm'
 
@@ -38,7 +39,6 @@ export default function Hero() {
           coordination de vos équipes pour une protection civile efficace et
           moderne.
         </p>
-
         {/* Stats */}
         <div className="hero-stats-container">
           {stats.map((stat) => (

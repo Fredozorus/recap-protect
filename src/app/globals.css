@@ -257,6 +257,7 @@ h6 {
 
 .hero-content {
   width: 100%;
+  display: contents;
 }
 
 .hero-title {
@@ -265,6 +266,7 @@ h6 {
   color: var(--color-warm-black);
   font-size: 36px;
   margin-bottom: 24px;
+  order: 1;
 }
 
 .hero-description {
@@ -272,6 +274,7 @@ h6 {
   color: var(--color-neutral-gray);
   font-size: 16px;
   margin-bottom: 32px;
+  order: 2;
 }
 
 .hero-stats-container {
@@ -281,6 +284,7 @@ h6 {
   margin-top: 40px;
   padding-top: 32px;
   border-top: 2px solid var(--color-paper-dark);
+  order: 4;
 }
 
 .hero-stat-number {
@@ -304,6 +308,7 @@ h6 {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
+  order: 3;
 }
 
 .auth-form-header {
@@ -357,6 +362,14 @@ h6 {
 }
 
 @media (min-width: 1024px) {
+  .hero-content {
+    display: block;
+  }
+
+  .auth-form-container {
+    order: 0;
+  }
+
   .hero-container {
     grid-template-columns: 1fr 1fr;
     gap: 80px;
