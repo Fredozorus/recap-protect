@@ -19,6 +19,7 @@ export default function AuthForm() {
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [success, setSuccess] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -53,13 +54,52 @@ export default function AuthForm() {
           firstName: formData.firstName,
           lastName: formData.lastName,
         })
-        router.push('/dashboard')
+        setSuccess(true)
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Une erreur est survenue')
+      if (err instanceof Error && err.message.includes('Email not confirmed')) {
+        setError('Veuillez confirmer votre email avant de vous connecter')
+      } else {
+        setError(err instanceof Error ? err.message : 'Une erreur est survenue')
+      }
     } finally {
       setLoading(false)
     }
+  }
+
+  if (success) {
+    return (
+      <div className="auth-form-container">
+        <div className="auth-form-header">
+          <h3 className="auth-form-title" style={{ color: colors.navy }}>
+            Compte créé !
+          </h3>
+          <p className="auth-form-subtitle">
+            Veuillez vérifier votre email pour confirmer votre compte.
+          </p>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <button
+            onClick={() => {
+              setSuccess(false)
+              setIsLogin(true)
+            }}
+            style={{
+              padding: '12px 24px',
+              backgroundColor: colors.navy,
+              color: 'white',
+              border: 'none',
+              borderRadius: '12px',
+              fontSize: '14px',
+              fontWeight: 600,
+              cursor: 'pointer',
+            }}
+          >
+            Retour à la connexion
+          </button>
+        </div>
+      </div>
+    )
   }
 
   return (

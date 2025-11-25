@@ -17,12 +17,12 @@ export default function Dashboard() {
       try {
         const currentUser = await getCurrentUser()
         if (!currentUser) {
-          router.push('/login')
+          router.push('/')
           return
         }
         setUser(currentUser)
       } catch (error) {
-        router.push('/login')
+        router.push('/')
       } finally {
         setLoading(false)
       }
