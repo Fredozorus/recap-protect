@@ -145,7 +145,7 @@ export default function AuthForm() {
                   padding: '12px 16px',
                   borderRadius: '8px',
                   fontSize: '14px',
-                  color: colors.warmBlack,
+                  color: colors.foreground,
                 }}
               >
                 {error}
@@ -163,7 +163,7 @@ export default function AuthForm() {
                       marginBottom: '8px',
                       fontSize: '14px',
                       fontWeight: 600,
-                      color: colors.warmBlack,
+                      color: colors.foreground,
                     }}
                   >
                     Prénom
@@ -182,7 +182,7 @@ export default function AuthForm() {
                       border: `1px solid ${colors.paperDark}`,
                       borderRadius: '12px',
                       fontSize: '14px',
-                      color: colors.warmBlack,
+                      color: colors.foreground,
                       outline: 'none',
                     }}
                     onFocus={(e) => {
@@ -203,7 +203,7 @@ export default function AuthForm() {
                       marginBottom: '8px',
                       fontSize: '14px',
                       fontWeight: 600,
-                      color: colors.warmBlack,
+                      color: colors.foreground,
                     }}
                   >
                     Nom
@@ -222,7 +222,7 @@ export default function AuthForm() {
                       border: `1px solid ${colors.paperDark}`,
                       borderRadius: '12px',
                       fontSize: '14px',
-                      color: colors.warmBlack,
+                      color: colors.foreground,
                       outline: 'none',
                     }}
                     onFocus={(e) => {
@@ -247,7 +247,7 @@ export default function AuthForm() {
                   marginBottom: '8px',
                   fontSize: '14px',
                   fontWeight: 600,
-                  color: colors.warmBlack,
+                  color: colors.foreground,
                 }}
               >
                 Email
@@ -267,7 +267,7 @@ export default function AuthForm() {
                   border: `1px solid ${colors.paperDark}`,
                   borderRadius: '12px',
                   fontSize: '14px',
-                  color: colors.warmBlack,
+                  color: colors.foreground,
                   outline: 'none',
                 }}
                 onFocus={(e) => {
@@ -290,7 +290,7 @@ export default function AuthForm() {
                   marginBottom: '8px',
                   fontSize: '14px',
                   fontWeight: 600,
-                  color: colors.warmBlack,
+                  color: colors.foreground,
                 }}
               >
                 Mot de passe
@@ -312,7 +312,7 @@ export default function AuthForm() {
                     border: `1px solid ${colors.paperDark}`,
                     borderRadius: '12px',
                     fontSize: '14px',
-                    color: colors.warmBlack,
+                    color: colors.foreground,
                     outline: 'none',
                   }}
                   onFocus={(e) => {
@@ -384,7 +384,7 @@ export default function AuthForm() {
                     marginBottom: '8px',
                     fontSize: '14px',
                     fontWeight: 600,
-                    color: colors.warmBlack,
+                    color: colors.foreground,
                   }}
                 >
                   Confirmer le mot de passe
@@ -406,7 +406,7 @@ export default function AuthForm() {
                       border: `1px solid ${colors.paperDark}`,
                       borderRadius: '12px',
                       fontSize: '14px',
-                      color: colors.warmBlack,
+                      color: colors.foreground,
                       outline: 'none',
                     }}
                     onFocus={(e) => {

@@ -1,22 +1,53 @@
 @import "tailwindcss";
 
-@theme inline {
-  /* Palette Principale */
-  --color-navy: #3a5a7e;
-  --color-navy-light: #4a6a8e;
-  --color-navy-dark: #2a4a6e;
+:root {
+  /* Light Mode (Default) */
+  --color-navy: #234A6F;
+  --color-navy-light: #335A7F;
+  --color-navy-dark: #133A5F;
 
-  --color-paper: #f5f1e8;
-  --color-paper-light: #faf8f3;
-  --color-paper-dark: #ebe7de;
+  --color-terracotta: #E68B3A;
+  --color-terracotta-light: #F69B4A;
+  --color-terracotta-dark: #D67B2A;
 
-  --color-terracotta: #c98550;
-  --color-terracotta-light: #d99560;
-  --color-terracotta-dark: #b97540;
+  --color-paper: #F5F1E8;
+  --color-paper-light: #FAF8F3;
+  --color-paper-dark: #EBE7DE;
 
-  /* Couleurs de Support */
-  --color-warm-black: #1a1a1a;
+  --color-warm-black: #1A1A1A;
   --color-neutral-gray: #666666;
+  --color-white: #FFFFFF;
+
+  /* Semantic Colors */
+  --background: var(--color-paper);
+  --foreground: var(--color-warm-black);
+  --card-bg: var(--color-white);
+  --card-border: var(--color-paper-dark);
+}
+
+.dark {
+  /* Dark Mode Overrides - Lighter and more readable */
+  --color-navy: #5BA3FF;
+  --color-navy-light: #7BB5FF;
+  --color-navy-dark: #3B83DF;
+
+  --color-terracotta: #FFB570;
+  --color-terracotta-light: #FFC590;
+  --color-terracotta-dark: #EFA560;
+
+  --color-paper: #1A1D23;
+  --color-paper-light: #252930;
+  --color-paper-dark: #2F3540;
+
+  --color-warm-black: #E8E8E8;
+  --color-neutral-gray: #B0B0B0;
+  --color-white: #252930;
+
+  /* Semantic Colors */
+  --background: var(--color-paper);
+  --foreground: var(--color-warm-black);
+  --card-bg: var(--color-paper-light);
+  --card-border: var(--color-paper-dark);
 }
 
 /* Reset et base */
@@ -35,13 +66,14 @@ body {
 }
 
 body {
-  background: #F5F5F5;
-  color: #1a1a1a;
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-space-grotesk), system-ui, -apple-system, sans-serif;
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -263,7 +295,7 @@ h6 {
 .hero-title {
   font-weight: 600;
   line-height: 1.1;
-  color: var(--color-warm-black);
+  color: var(--foreground);
   font-size: 36px;
   margin-bottom: 24px;
   order: 1;
@@ -291,6 +323,7 @@ h6 {
   font-size: 36px;
   font-weight: 600;
   margin-bottom: 8px;
+  color: var(--foreground);
 }
 
 .hero-stat-label {
@@ -300,15 +333,16 @@ h6 {
 
 /* AuthForm Responsive Styles */
 .auth-form-container {
-  background-color: white;
+  background-color: var(--card-bg);
   border-radius: 24px;
   padding: 24px;
   box-shadow: 0 20px 60px rgba(58, 90, 126, 0.15);
-  border: 1px solid var(--color-paper-dark);
+  border: 1px solid var(--card-border);
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
   order: 3;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .auth-form-header {
@@ -320,7 +354,7 @@ h6 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 8px;
-  color: var(--color-warm-black);
+  color: var(--foreground);
 }
 
 .auth-form-subtitle {
@@ -397,9 +431,10 @@ h6 {
 
 /* Dashboard Responsive Styles */
 .dashboard-navbar {
-  background-color: white;
-  border-bottom: 1px solid var(--color-paper-dark);
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
   padding: 16px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .dashboard-navbar-container {
@@ -436,10 +471,11 @@ h6 {
 }
 
 .dashboard-stat-card {
-  background-color: white;
+  background-color: var(--card-bg);
   padding: 24px;
   border-radius: 12px;
-  border: 1px solid var(--color-paper-dark);
+  border: 1px solid var(--card-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .dashboard-content-grid {
@@ -449,10 +485,11 @@ h6 {
 }
 
 .dashboard-card {
-  background-color: white;
+  background-color: var(--card-bg);
   border-radius: 12px;
-  border: 1px solid var(--color-paper-dark);
+  border: 1px solid var(--card-border);
   overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .dashboard-cta {

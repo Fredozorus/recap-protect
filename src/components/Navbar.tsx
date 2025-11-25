@@ -1,17 +1,19 @@
 'use client'
 
 import { colors } from '@/app/styles/colors';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   return (
     <nav
       style={{
-        backgroundColor: 'white',
-        borderBottom: `1px solid ${colors.paperDark}`,
+        backgroundColor: colors.cardBg,
+        borderBottom: `1px solid ${colors.cardBorder}`,
         boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
         position: 'sticky',
         top: 0,
         zIndex: 50,
+        transition: 'background-color 0.3s ease, border-color 0.3s ease',
       }}
     >
       <div
@@ -29,6 +31,7 @@ export default function Navbar() {
           <span style={{ color: colors.navy }}>Recap</span>
           <span style={{ color: colors.terracotta }}>Protec</span>
         </h1>
+        <ThemeToggle />
       </div>
     </nav>
   );

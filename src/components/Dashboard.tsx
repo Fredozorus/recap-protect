@@ -6,6 +6,7 @@ import { getCurrentUser, signOut } from '@/lib/supabase/auth'
 import type { User } from '@supabase/supabase-js'
 import { Calendar, Clock, MapPin, Award, TrendingUp, Users } from 'lucide-react'
 import { colors } from '@/app/styles/colors'
+import ThemeToggle from './ThemeToggle'
 
 export default function Dashboard() {
   const router = useRouter()
@@ -99,9 +100,9 @@ export default function Dashboard() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#f5f1e8'
+        backgroundColor: colors.paper
       }}>
-        <div style={{ fontSize: '20px', color: '#3a5a7e' }}>Chargement...</div>
+        <div style={{ fontSize: '20px', color: colors.navy }}>Chargement...</div>
       </div>
     )
   }
@@ -111,18 +112,21 @@ export default function Dashboard() {
   }
 
   return (
-    <>
+    <div style={{ minHeight: '100vh', backgroundColor: colors.background }}>
       {/* Navbar */}
-      <nav className="dashboard-navbar">
+      <nav className="dashboard-navbar" style={{ backgroundColor: colors.cardBg, borderColor: colors.cardBorder }}>
         <div className="dashboard-navbar-container">
-          <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>
-            <span style={{ color: colors.navy }}>Recap</span>
-            <span style={{ color: colors.terracotta }}>Protec</span>
-          </h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>
+              <span style={{ color: colors.navy }}>Recap</span>
+              <span style={{ color: colors.terracotta }}>Protec</span>
+            </h1>
+          </div>
 
           <div className="dashboard-user-section">
+            <ThemeToggle />
             <div className="dashboard-user-info">
-              <p style={{ fontSize: '14px', fontWeight: '500', color: colors.navy }}>
+              <p style={{ fontSize: '14px', fontWeight: '500', color: colors.foreground }}>
                 {user.user_metadata?.first_name} {user.user_metadata?.last_name}
               </p>
               <p style={{ fontSize: '12px', color: colors.neutralGray }}>{user.email}</p>
@@ -170,7 +174,7 @@ export default function Dashboard() {
 
         {/* Stats */}
         <div className="dashboard-stats-grid">
-          <div className="dashboard-stat-card">
+          <div className="dashboard-stat-card" style={{ backgroundColor: colors.cardBg, borderColor: colors.cardBorder }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
               <div style={{
                 width: '48px',
@@ -191,7 +195,7 @@ export default function Dashboard() {
             <p style={{ fontSize: '14px', color: colors.neutralGray }}>Heures totales</p>
           </div>
 
-          <div className="dashboard-stat-card">
+          <div className="dashboard-stat-card" style={{ backgroundColor: colors.cardBg, borderColor: colors.cardBorder }}>
             <div style={{ marginBottom: '12px' }}>
               <div style={{
                 width: '48px',
@@ -211,7 +215,7 @@ export default function Dashboard() {
             <p style={{ fontSize: '14px', color: colors.neutralGray }}>Événements</p>
           </div>
 
-          <div className="dashboard-stat-card">
+          <div className="dashboard-stat-card" style={{ backgroundColor: colors.cardBg, borderColor: colors.cardBorder }}>
             <div style={{ marginBottom: '12px' }}>
               <div style={{
                 width: '48px',
@@ -231,7 +235,7 @@ export default function Dashboard() {
             <p style={{ fontSize: '14px', color: colors.neutralGray }}>À venir</p>
           </div>
 
-          <div className="dashboard-stat-card">
+          <div className="dashboard-stat-card" style={{ backgroundColor: colors.cardBg, borderColor: colors.cardBorder }}>
             <div style={{ marginBottom: '12px' }}>
               <div style={{
                 width: '48px',
@@ -256,7 +260,7 @@ export default function Dashboard() {
         <div className="dashboard-content-grid">
 
           {/* Recent Activities */}
-          <div className="dashboard-card">
+          <div className="dashboard-card" style={{ backgroundColor: colors.cardBg, borderColor: colors.cardBorder }}>
             <div style={{ padding: '24px', borderBottom: `1px solid ${colors.paperDark}` }}>
               <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: colors.navy }}>
                 Activités récentes
@@ -313,7 +317,7 @@ export default function Dashboard() {
           </div>
 
           {/* Upcoming Events */}
-          <div className="dashboard-card">
+          <div className="dashboard-card" style={{ backgroundColor: colors.cardBg, borderColor: colors.cardBorder }}>
             <div style={{ padding: '24px', borderBottom: `1px solid ${colors.paperDark}` }}>
               <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: colors.navy }}>
                 Prochains événements
@@ -392,6 +396,6 @@ export default function Dashboard() {
           </button>
         </div>
       </main>
-    </>
+    </div>
   )
 }

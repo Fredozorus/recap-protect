@@ -1,20 +1,28 @@
 // src/styles/colors.ts
 export const colors = {
-  // Bleu marine - plus vif, proche de l'original
-  navy: '#234A6F',        // Plus saturé, plus profond
-  navyLight: '#335A7F',
-  navyDark: '#133A5F',
+  // Bleu marine
+  navy: 'var(--color-navy)',
+  navyLight: 'var(--color-navy-light)',
+  navyDark: 'var(--color-navy-dark)',
   
-  // Orange - plus énergique et vibrant
-  terracotta: '#E68B3A',  // Orange plus vif, garde la chaleur
-  terracottaLight: '#F69B4A',
-  terracottaDark: '#D67B2A',
+  // Orange
+  terracotta: 'var(--color-terracotta)',
+  terracottaLight: 'var(--color-terracotta-light)',
+  terracottaDark: 'var(--color-terracotta-dark)',
   
-  paper: '#F5F1E8',
-  paperLight: '#FAF8F3',
-  paperDark: '#EBE7DE',
+  // Backgrounds
+  paper: 'var(--color-paper)',
+  paperLight: 'var(--color-paper-light)',
+  paperDark: 'var(--color-paper-dark)',
   
-  warmBlack: '#1A1A1A',
-  neutralGray: '#666666',
-  white: '#FFFFFF',
+  // Text & Neutrals
+  warmBlack: 'var(--color-warm-black)',
+  neutralGray: 'var(--color-neutral-gray)',
+  white: 'var(--color-white)',
+
+  // Semantic
+  background: 'var(--background)',
+  foreground: 'var(--foreground)',
+  cardBg: 'var(--card-bg)',
+  cardBorder: 'var(--card-border)',
 } as const;
