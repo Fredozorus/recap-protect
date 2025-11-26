@@ -5,9 +5,10 @@ import { CSSProperties } from 'react';
 
 const styles: Record<string, CSSProperties> = {
   footer: {
-    borderTop: `1px solid ${colors.paperDark}`,
+    borderTop: `1px solid ${colors.cardBorder}`,
     marginTop: 'auto',
-    backgroundColor: 'white',
+    backgroundColor: colors.cardBg,
+    transition: 'background-color 0.3s ease, border-color 0.3s ease',
   },
   container: {
     maxWidth: '1200px',
@@ -43,7 +44,7 @@ const styles: Record<string, CSSProperties> = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: colors.white,
+    color: colors.cardBg,
     textDecoration: 'none',
     fontSize: '16px',
     fontWeight: 600,
@@ -51,7 +52,7 @@ const styles: Record<string, CSSProperties> = {
   },
   bottomBar: {
     paddingTop: '16px',
-    borderTop: `1px solid ${colors.paperDark}`,
+    borderTop: `1px solid ${colors.cardBorder}`,
     width: '100%',
     display: 'flex',
     flexDirection: 'column',

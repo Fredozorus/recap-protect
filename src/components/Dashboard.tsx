@@ -353,7 +353,7 @@ export default function Dashboard() {
                 </div>
               </div>
             ))}
-            <div style={{ padding: '16px', backgroundColor: 'rgba(245, 241, 232, 0.5)', textAlign: 'center' }}>
+            <div style={{ padding: '16px', backgroundColor: colors.background, borderTop: `1px solid ${colors.cardBorder}`, textAlign: 'center' }}>
               <button style={{
                 fontSize: '14px',
                 fontWeight: '500',
