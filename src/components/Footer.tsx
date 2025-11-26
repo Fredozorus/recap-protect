@@ -78,16 +78,6 @@ const styles: Record<string, CSSProperties> = {
   },
 };
 
-const SocialIcon = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a
-    href={href}
-    style={styles.socialIcon}
-    onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-    onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-  >
-    {children}
-  </a>
-);
 
 export default function Footer() {
   const legalLinks = [
@@ -109,13 +99,6 @@ export default function Footer() {
           Protection et sécurité au service de tous.
           Coordonnez vos équipes efficacement avec notre solution moderne.
         </p>
-
-        {/* Social Icons */}
-        <div style={styles.socialContainer}>
-          <SocialIcon href="#">f</SocialIcon>
-          <SocialIcon href="#">𝕏</SocialIcon>
-          <SocialIcon href="#">in</SocialIcon>
-        </div>
 
         {/* Footer Bottom */}
         <div style={styles.bottomBar}>
