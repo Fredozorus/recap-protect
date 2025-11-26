@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
+      suppressHydrationWarning
       style={{
         margin: 0,
         padding: 0,
