@@ -7,6 +7,7 @@ import type { User } from '@supabase/supabase-js'
 import { Calendar, Clock, MapPin, Award, TrendingUp, Users } from 'lucide-react'
 import { colors } from '@/app/styles/colors'
 import ThemeToggle from './ThemeToggle'
+import StaffCharts from './StaffCharts'
 
 export default function Dashboard() {
   const router = useRouter()
@@ -394,6 +395,11 @@ export default function Dashboard() {
             }}>
             En savoir plus
           </button>
+        </div>
+
+        {/* Staff Analysis Section */}
+        <div style={{ marginTop: '48px' }}>
+          <StaffCharts />
         </div>
       </main>
     </div>

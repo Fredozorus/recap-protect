@@ -531,3 +531,20 @@ h6 {
     padding: 48px;
   }
 }
+
+/* Tremor Chart Color Overrides */
+.chart-navy .tremor-BarChart-bar {
+  fill: #234A6F !important;
+}
+
+.chart-terracotta .tremor-BarChart-bar {
+  fill: #E68B3A !important;
+}
+
+.chart-donut .tremor-DonutChart-slice:first-child {
+  fill: #E68B3A !important;
+}
+
+.chart-donut .tremor-DonutChart-slice:nth-child(2) {
+  fill: #64748b !important;
+}
