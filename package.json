@@ -29,5 +29,11 @@
     "tailwindcss": "^4",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@tremor/react": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   }
 }
