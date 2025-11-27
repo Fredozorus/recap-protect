@@ -138,25 +138,6 @@ export default function StaffCharts() {
                 marginTop: '24px'
             }}
                 className="lg:grid-cols-2">
-                {/* Top Entities */}
-                <div className="dashboard-card">
-                    <div style={{ padding: '24px' }} className="chart-navy">
-                        <Title>Top 5 Entités</Title>
-                        <Text>Répartition des membres par section</Text>
-                        <BarChart
-                            className="mt-6 h-72"
-                            data={staffData.getTopEntities(5)}
-                            index="label"
-                            categories={["count"]}
-                            colors={["blue"]}
-                            valueFormatter={valueFormatter}
-                            yAxisWidth={60}
-                            showLegend={false}
-                            layout="horizontal"
-                        />
-                    </div>
-                </div>
-
                 {/* Experience Levels */}
                 <div className="dashboard-card">
                     <div style={{ padding: '24px' }} className="chart-donut">
